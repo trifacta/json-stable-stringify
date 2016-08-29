@@ -18,11 +18,3 @@ test('cyclic (default)', function (t) {
     	t.equal(ex.toString(), 'TypeError: Converting circular structure to JSON');
     }
 });
-
-test('cyclic (specifically allowed)', function (t) {
-    t.plan(1);
-    var one = { a: 1 };
-    var two = { a: 2, one: one };
-    one.two = two;
-    t.equal(stringify(one, {cycles:true}), '{"a":1,"two":{"a":2,"one":"__cycle__"}}');
-});
