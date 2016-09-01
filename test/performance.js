@@ -13,7 +13,7 @@ var obj = {
 
 suite
     .add('fast stable stringify',
-         function(t) { stringify(obj, {space : '  '}); })
+         function(t) { stringify(obj); })
     .add('JSON stringify', function(t) { JSON.stringify(obj); })
     .on('cycle', function(event) { console.log(String(event.target)); })
     .on('complete',
@@ -21,17 +21,3 @@ suite
           console.log('Fastest is ' + this.filter('fastest').map('name'));
         })
     .run({'async' : true});
-
-/**
- * logs:
- *
- * Before getting rid of identation and options:
- *
- * => fast stable stringify x 30,711 ops/sec ±0.86% (88 runs sampled)
- * => JSON stringify x 346,700 ops/sec ±1.56% (88 runs sampled)
- *
- * After:
- *
- * => fast stable stringify x 52,130 ops/sec ±0.98% (85 runs sampled)
- * => JSON stringify x 348,935 ops/sec ±1.32% (78 runs sampled)
- */

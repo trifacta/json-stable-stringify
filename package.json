@@ -4,6 +4,7 @@
   "description": "deterministic JSON.stringify() with custom sorting to get deterministic hashes from stringified results",
   "main": "index.js",
   "dependencies": {
+    "benchmark": "^2.1.1",
     "jsonify": "~0.0.0"
   },
   "devDependencies": {
@@ -16,8 +17,10 @@
     "files": "test/*.js",
     "browsers": [
       "ie/8..latest",
-      "ff/5", "ff/latest",
-      "chrome/15", "chrome/latest",
+      "ff/5",
+      "ff/latest",
+      "chrome/15",
+      "chrome/latest",
       "safari/latest",
       "opera/latest"
     ]
